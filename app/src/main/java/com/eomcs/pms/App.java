@@ -1,12 +1,17 @@
 package com.eomcs.pms;
 
+import com.eomcs.pms.handler.MemberHandler;
+import com.eomcs.pms.handler.ProjectHandler;
+import com.eomcs.pms.handler.TaskHandler;
+import com.eomcs.util.Prompt;
+
 public class App {
 
   public static void main(String[] args) {
 
     loop:
       while (true) {
-        String command = Prompt.inputString("명령> ");
+        String command = com.eomcs.util.Prompt.inputString("명령> ");
 
         switch (command) {
           case "/member/add":
@@ -39,5 +44,4 @@ public class App {
 
     Prompt.close();
   }
-
 }

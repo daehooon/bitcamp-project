@@ -15,6 +15,7 @@ public class App {
     ProjectHandler projectList = new ProjectHandler(memberList);
     TaskHandler taskList = new TaskHandler(memberList);
 
+
     loop:
       while (true) {
         String command = com.eomcs.util.Prompt.inputString("명령> ");
@@ -28,10 +29,10 @@ public class App {
             break;
           case "/member/detail":
             memberList.detail();
-            break;
+            break;  
           case "/member/update":
             memberList.update();
-            break;
+            break; 
           case "/member/delete":
             memberList.delete();
             break;
@@ -41,11 +42,29 @@ public class App {
           case "/project/list":
             projectList.list();
             break;
+          case "/project/detail": 
+            projectList.detail();
+            break;  
+          case "/project/update":
+            projectList.update();
+            break; 
+          case "/project/delete":
+            projectList.delete();
+            break;
           case "/task/add":
             taskList.add();
             break;
           case "/task/list":
             taskList.list();
+            break;
+          case "/task/detail": 
+            taskList.detail();
+            break;  
+          case "/task/update":
+            taskList.update();
+            break; 
+          case "/task/delete":
+            taskList.delete();
             break;
           case "/board/add":
             boardList.add();
@@ -55,10 +74,10 @@ public class App {
             break;
           case "/board/detail":
             boardList.detail();
-            break;
+            break;  
           case "/board/update":
             boardList.update();
-            break;
+            break; 
           case "/board/delete":
             boardList.delete();
             break;

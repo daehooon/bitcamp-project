@@ -1,18 +1,19 @@
 package com.eomcs.pms.handler;
 
 import java.sql.Date;
+import java.util.Arrays;
 import com.eomcs.pms.domain.Task;
 import com.eomcs.util.Prompt;
 
 public class TaskHandler {
 
-  static final int LENGTH = 100;
+  static final int DEFAULT_CAPASITY = 100;
 
   // 의존 객체(dependency)를 담을 인스턴스 필드
   // - 메서드가 작업할 때 사용할 객체를 담는다.
   MemberHandler memberList;
 
-  Task[] tasks = new Task[LENGTH];
+  Task[] tasks = new Task[DEFAULT_CAPASITY];
   int size = 0;
 
   // 생성자
@@ -35,6 +36,10 @@ public class TaskHandler {
     if (t.owner == null) {
       System.out.println("작업 등록을 취소하였습니다.");
       return;
+    }
+
+    if (this.size >= this.tasks.length) {
+      this.tasks = Arrays.copyOf(this.tasks, this.size + (this.size >> 1));
     }
 
     this.tasks[this.size++] = t;

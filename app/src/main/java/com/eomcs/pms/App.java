@@ -4,27 +4,37 @@ import com.eomcs.pms.handler.BoardHandler;
 import com.eomcs.pms.handler.MemberHandler;
 import com.eomcs.pms.handler.ProjectHandler;
 import com.eomcs.pms.handler.TaskHandler;
+import com.eomcs.util.AbstractIterator;
 import com.eomcs.util.Prompt;
+import com.eomcs.util.Queue;
+import com.eomcs.util.QueueIterator;
 import com.eomcs.util.Stack;
+import com.eomcs.util.StackIterator;
 
 public class App {
-  
+
   // 사용자가 입력한 명령을 저장할 컬렉션 객체 준비
   static Stack commandStack = new Stack();
+  static Queue commandQueue = new Queue();
 
-  public static void main(String[] args) {
+
+  public static void main(String[] args) throws CloneNotSupportedException {
 
     BoardHandler boardHandler = new BoardHandler();
     MemberHandler memberHandler = new MemberHandler();
     ProjectHandler projectHandler = new ProjectHandler(memberHandler);
     TaskHandler taskHandler = new TaskHandler(memberHandler);
-    
+
     loop:
       while (true) {
         String command = com.eomcs.util.Prompt.inputString("명령> ");
-        
+
+        if (command.length() == 0) // 사용자가 빈 문자열을 입력하면 다시 입력하도록 요구한다.
+          continue;
+
         // 사용자가 입력한 명령을 보관해둔다.
         commandStack.push(command);
+        commandQueue.offer(command);
 
         switch (command) {
           case "/member/add":
@@ -87,8 +97,11 @@ public class App {
           case "/board/delete":
             boardHandler.delete();
             break;
-          case "history":  // <== history 명령 추가
-            printCommandHistory();
+          case "history":
+            printCommandHistory(new StackIterator(commandStack.clone()));
+            break;
+          case "history2": 
+            printCommandHistory(new QueueIterator(commandQueue.clone()));
             break;
           case "quit":
           case "exit":
@@ -102,11 +115,11 @@ public class App {
 
     Prompt.close();
   }
-  
-  static void printCommandHistory() {
+
+  static void printCommandHistory(AbstractIterator iterator) {
     int count = 0;
-    while (commandStack.size() > 0) {
-      System.out.println(commandStack.pop());
+    while (iterator.hasNext()) {
+      System.out.println(iterator.next());
       if ((++count % 5) == 0) {
         String input = Prompt.inputString(": ");
         if (input.equalsIgnoreCase("q")) {

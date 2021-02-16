@@ -8,7 +8,7 @@ import com.eomcs.util.Prompt;
 
 public class ProjectHandler {
 
-  private List projectList = new List();
+  private List<Project> projectList = new List<>();
 
   private MemberHandler memberHandler;
 
@@ -42,7 +42,7 @@ public class ProjectHandler {
   public void list() throws CloneNotSupportedException {
     System.out.println("[프로젝트 목록]");
 
-    Iterator iterator = projectList.iterator();
+    Iterator<Project> iterator = projectList.iterator();
 
     while (iterator.hasNext()) {
       Project p = (Project) iterator.next();
@@ -137,9 +137,8 @@ public class ProjectHandler {
   }
 
   private Project findByNo(int projectNo) {
-    Object[] list = projectList.toArray();
-    for (Object obj : list) {
-      Project p = (Project) obj;
+    Project[] arr = projectList.toArray(new Project[projectList.size()]);
+    for (Project p : arr) {
       if (p.getNo() == projectNo) {
         return p;
       }

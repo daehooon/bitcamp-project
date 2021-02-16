@@ -37,9 +37,8 @@ public class MemberHandler {
     Iterator<Member> iterator = memberList.iterator();
 
     while (iterator.hasNext()) {
-      Member m = (Member) iterator.next();
-      // 번호, 이름, 이메일, 전화, 가입일
-      System.out.printf("%d, %s, %s, %s, %s\n", // 출력 형식 지정
+      Member m = iterator.next();
+      System.out.printf("%d, %s, %s, %s, %s\n",
           m.getNo(), m.getName(), m.getEmail(), m.getTel(), m.getRegisteredDate());
     }
   }
@@ -145,8 +144,8 @@ public class MemberHandler {
   }
 
   private Member findByNo(int boardNo) {
-    Member[] arr = memberList.toArray(new Member[memberList.size()]);
-    for (Member m : arr) {
+    Member[] list = memberList.toArray(new Member[memberList.size()]);
+    for (Member m : list) {
       if (m.getNo() == boardNo) {
         return m;
       }
@@ -155,8 +154,8 @@ public class MemberHandler {
   }
 
   private Member findByName(String name) {
-    Member[] arr = memberList.toArray(new Member[memberList.size()]);
-    for (Member m : arr) {
+    Member[] list = memberList.toArray(new Member[memberList.size()]);
+    for (Member m : list) {
       if (m.getName().equals(name)) {
         return m;
       }

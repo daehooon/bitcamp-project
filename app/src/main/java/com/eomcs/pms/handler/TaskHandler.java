@@ -137,8 +137,8 @@ public class TaskHandler {
   }
 
   private Task findByNo(int taskNo) {
-    Task[] arr = taskList.toArray(new Task[taskList.size()]);
-    for (Task t : arr) {
+    Task[] list = taskList.toArray(new Task[taskList.size()]);
+    for (Task t : list) {
       if (t.getNo() == taskNo) {
         return t;
       }

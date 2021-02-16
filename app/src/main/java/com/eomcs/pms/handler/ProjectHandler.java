@@ -45,7 +45,7 @@ public class ProjectHandler {
     Iterator<Project> iterator = projectList.iterator();
 
     while (iterator.hasNext()) {
-      Project p = (Project) iterator.next();
+      Project p = iterator.next();
       System.out.printf("%d, %s, %s, %s, %s, [%s]\n",
           p.getNo(), p.getTitle(), p.getStartDate(), p.getEndDate(), p.getOwner(), p.getMembers());
     }
@@ -137,8 +137,8 @@ public class ProjectHandler {
   }
 
   private Project findByNo(int projectNo) {
-    Project[] arr = projectList.toArray(new Project[projectList.size()]);
-    for (Project p : arr) {
+    Project[] list = projectList.toArray(new Project[projectList.size()]);
+    for (Project p : list) {
       if (p.getNo() == projectNo) {
         return p;
       }

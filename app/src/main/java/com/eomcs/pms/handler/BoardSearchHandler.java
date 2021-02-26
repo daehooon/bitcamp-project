@@ -48,6 +48,7 @@ public class BoardSearchHandler extends AbstractBoardHandler {
           b.getViewCount(),
           b.getLike());
     }
+
   }
 
 }

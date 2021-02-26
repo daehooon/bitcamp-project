@@ -27,7 +27,6 @@ public class BoardAddHandler extends AbstractBoardHandler {
 
     System.out.println("게시글을 등록하였습니다.");
   }
-
 }
 
 

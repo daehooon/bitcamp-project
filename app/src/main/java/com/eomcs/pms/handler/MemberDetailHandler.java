@@ -29,7 +29,6 @@ public class MemberDetailHandler extends AbstractMemberHandler {
     System.out.printf("가입일: %s\n", member.getRegisteredDate());
 
   }
-
 }
 
 

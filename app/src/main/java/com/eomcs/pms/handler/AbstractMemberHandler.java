@@ -11,10 +11,10 @@ public abstract class AbstractMemberHandler implements Command {
     this.memberList = memberList;
   }
 
-  protected Member findByNo(int boardNo) {
+  protected Member findByNo(int memberNo) {
     Member[] list = memberList.toArray(new Member[memberList.size()]);
     for (Member m : list) {
-      if (m.getNo() == boardNo) {
+      if (m.getNo() == memberNo) {
         return m;
       }
     }
@@ -32,8 +32,8 @@ public abstract class AbstractMemberHandler implements Command {
   }
 
   // 리팩토링 수행
-  // MemberValidatorHandler 클래스로 옮긴다.
-  //
+  // - MemberValidatorHandler 클래스로 옮긴다.
+  // 
   //  public String inputMember(String promptTitle) {
   //    while (true) {
   //      String name = Prompt.inputString(promptTitle);
@@ -61,6 +61,7 @@ public abstract class AbstractMemberHandler implements Command {
   //      }
   //    }
   //  }
+
 
 }
 

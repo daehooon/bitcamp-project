@@ -31,7 +31,6 @@ public class BoardDetailHandler extends AbstractBoardHandler {
     System.out.printf("조회수: %d\n", board.getViewCount());
 
   }
-
 }
 
 

@@ -33,5 +33,4 @@ public class TaskDeleteHandler extends AbstractTaskHandler {
     }
 
   }
-
 }

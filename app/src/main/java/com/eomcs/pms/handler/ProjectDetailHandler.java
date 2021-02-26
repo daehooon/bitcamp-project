@@ -30,7 +30,6 @@ public class ProjectDetailHandler extends AbstractProjectHandler {
     System.out.printf("팀원: %s\n", project.getMembers());
 
   }
-
 }
 
 

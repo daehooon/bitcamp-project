@@ -32,5 +32,4 @@ public class TaskAddHandler extends AbstractTaskHandler {
     taskList.add(t);
     System.out.println("작업을 등록했습니다.");
   }
-
 }

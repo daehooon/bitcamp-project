@@ -13,7 +13,6 @@ public class ProjectAddHandler extends AbstractProjectHandler {
     this.memberValidatorHandler = memberValidatorHandler;
   }
 
-
   @Override
   public void service() {
     System.out.println("[프로젝트 등록]");
@@ -37,7 +36,6 @@ public class ProjectAddHandler extends AbstractProjectHandler {
 
     System.out.println("프로젝트를 등록했습니다.");
   }
-
 }
 
 

@@ -26,7 +26,7 @@ public class ProjectDeleteHandler extends AbstractProjectHandler {
 
     if (input.equalsIgnoreCase("Y")) {
       projectList.remove(project);
-      System.out.println("프로젝트을 삭제하였습니다.");
+      System.out.println("프로젝트를 삭제하였습니다.");
 
     } else {
       System.out.println("프로젝트 삭제를 취소하였습니다.");
